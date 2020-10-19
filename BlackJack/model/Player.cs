@@ -11,6 +11,7 @@ namespace BlackJack.model
 
         public void DealCard(Card a_card)
         {
+            // här sätter vi observern(a_card)
             m_hand.Add(a_card);
         }
 
@@ -30,6 +31,18 @@ namespace BlackJack.model
             {
                 c.Show(true);
             }
+        }
+
+        public bool checkAces(int score) {
+            bool acesInHand = false;
+            foreach (Card c in GetHand())
+            {
+                if (c.GetValue() == Card.Value.Ace && score > 21)
+                {
+                    acesInHand = true;
+                }
+            }
+            return acesInHand;
         }
 
         public int CalcScore()

@@ -61,10 +61,11 @@ namespace BlackJack.model
                     m_hitRule.DoHit(this);
                     Card card = m_deck.GetCard();
                     card.Show(true);
-                    this.DealCard(card);
-                    this.m_hand.Add(card);
+                    DealCard(card);
                 }
+                return true;
             } 
+            return false;
         }
 
         public bool IsDealerWinner(Player a_player)

@@ -12,12 +12,16 @@ namespace BlackJack.view
         {
             System.Console.Clear();
             System.Console.WriteLine("Hello Black Jack World");
-            System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+            // hidden dependency
+            System.Console.WriteLine("Type '" + (char)UserChoice.PLAY + "' to Play, '" 
+                                            + (char)UserChoice.HIT + "' to Hit, '" 
+                                            + (char)UserChoice.STAND + "' to Stand or '" 
+                                            + (char)UserChoice.QUIT + "' to Quit\n");
         }
 
-        public int GetInput()
+        public UserChoice GetUserInput()
         {
-            return System.Console.In.Read();
+            return (view.UserChoice)System.Console.In.Read();
         }
 
         public void DisplayCard(model.Card a_card)
