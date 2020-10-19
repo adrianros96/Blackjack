@@ -19,7 +19,7 @@ namespace BlackJack.controller
                 a_view.DisplayGameOver(a_game.IsDealerWinner());
             }
 
-            view.UserChoice input = a_view.GetUserInput();
+            view.UserChoice input = a_view.GetInput();
 
             if (view.UserChoice.PLAY.Equals(input))
             {

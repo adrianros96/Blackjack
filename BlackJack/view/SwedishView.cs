@@ -17,12 +17,8 @@ namespace BlackJack.view
                                                 + (char)UserChoice.STAND + "' för att stanna '" 
                                                 + (char)UserChoice.QUIT + "' för att avsluta\n");
         }
-        // public int GetInput()
-        // {
-        //     return System.Console.In.Read();
-        // }
 
-        public UserChoice GetUserInput()
+        public UserChoice GetInput()
         {
             return (view.UserChoice)System.Console.In.Read();
         }
