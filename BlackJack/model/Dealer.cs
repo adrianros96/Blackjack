@@ -46,6 +46,16 @@ namespace BlackJack.model
             return false;
         }
 
+        public bool Stand(Player a_player)
+        {
+            if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) 
+            {
+                return true;
+            }
+            return false;
+
+        }
+
         public bool IsDealerWinner(Player a_player)
         {
             if (a_player.CalcScore() > g_maxScore)
