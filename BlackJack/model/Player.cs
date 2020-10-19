@@ -33,18 +33,6 @@ namespace BlackJack.model
             }
         }
 
-        public bool checkAces(int score) {
-            bool acesInHand = false;
-            foreach (Card c in GetHand())
-            {
-                if (c.GetValue() == Card.Value.Ace && score > 21)
-                {
-                    acesInHand = true;
-                }
-            }
-            return acesInHand;
-        }
-
         public int CalcScore()
         {
             int[] cardScores = new int[(int)model.Card.Value.Count]

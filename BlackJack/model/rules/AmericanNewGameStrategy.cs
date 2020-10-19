@@ -11,6 +11,7 @@ namespace BlackJack.model.rules
         {
             Card c;
 
+            // TODO Split the top three c = a_deck.GetCard()   \n   c.Show(true)
             c = a_deck.GetCard();
             c.Show(true);
             a_player.DealCard(c);

@@ -20,6 +20,8 @@ namespace BlackJack.model
             m_hitRule = a_rulesFactory.GetHitRule();
         }
 
+
+        // TODO fix dry
         public bool NewGame(Player a_player)
         {
             if (m_deck == null || IsGameOver())
@@ -45,7 +47,7 @@ namespace BlackJack.model
             }
             return false;
         }
-
+        // TODO fix dry
         public bool Stand() {
             if(m_deck != null)
             {
