@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Linq;
 using System.Text;
 
@@ -22,6 +23,11 @@ namespace BlackJack.view
         public UserChoice GetInput()
         {
             return (view.UserChoice)System.Console.In.Read();
+        }
+
+        public void Pause() {
+            Console.WriteLine("Sleep for 2 seconds.");
+            Thread.Sleep(2000);
         }
 
         public void DisplayCard(model.Card a_card)

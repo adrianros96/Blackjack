@@ -28,6 +28,7 @@ namespace BlackJack.controller
             else if (view.UserChoice.HIT.Equals(input))
             {
                 a_game.Hit();
+               // a_view.Pause();
             }
             else if (view.UserChoice.STAND.Equals(input))
             {
