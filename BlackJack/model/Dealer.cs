@@ -9,6 +9,7 @@ namespace BlackJack.model
     {
         private Deck m_deck = null;
         private const int g_maxScore = 21;
+        
 
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
