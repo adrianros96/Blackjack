@@ -9,24 +9,10 @@ namespace BlackJack.model.rules
     {
         public bool NewGame(Deck a_deck, Dealer a_dealer, Player a_player)
         {
-            Card c;
-
-            // TODO Split the top three c = a_deck.GetCard()   \n   c.Show(true)
-            c = a_deck.GetCard();
-            c.Show(true);
-            a_player.DealCard(c);
-
-            c = a_deck.GetCard();
-            c.Show(true);
-            a_dealer.DealCard(c);
-
-            c = a_deck.GetCard();
-            c.Show(true);
-            a_player.DealCard(c);
-
-            c = a_deck.GetCard();
-            c.Show(false);
-            a_dealer.DealCard(c);
+            a_dealer.DealerDealsCard(a_deck, a_player, true);
+            a_dealer.DealerDealsCard(a_deck, a_dealer, true);
+            a_dealer.DealerDealsCard(a_deck, a_player, true);
+            a_dealer.DealerDealsCard(a_deck, a_dealer, false);
 
             return true;
         }

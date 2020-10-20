@@ -71,6 +71,13 @@ namespace BlackJack.model
             return false;
         }
 
+        public void DealerDealsCard(Deck a_deck, Player a_player, bool show) {
+            Card c;
+            c = a_deck.GetCard();
+            c.Show(show);
+            a_player.DealCard(c);
+        }
+
         public bool IsDealerWinner(Player a_player)
         {
             if (a_player.CalcScore() > g_maxScore)

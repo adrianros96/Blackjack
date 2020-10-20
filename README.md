@@ -21,7 +21,7 @@ The code for getting a card from the deck, show the card and give it to a player
         player.DealCard(c);
 
 
-6. Observer pattern - 
+6. Observer pattern - DONE
 6,1. - As we look at the above implementation we can see that Observer and Subject know about each other, 
 which means to some extent they are coupled (not completely loosely coupled). To overcome this problem, 
 .NET Framework provides a generic System.IObservable<T> and System.IObserver<T> interfaces which can be -> 
