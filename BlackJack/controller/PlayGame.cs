@@ -9,51 +9,52 @@ namespace BlackJack.controller
 {
     class PlayGame : IObserver
     {
-        // public void RenderGame(model.Game a_game, view.IView a_view)
-        // {
-        //     a_view.DisplayWelcomeMessage();
-            
-        //     a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-        //     a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
-        //     a_game.AddSubscriber();
+        private model.Game c_game;
+        private view.IView c_view;
 
-        //     if (a_game.IsGameOver())
-        //     {
-        //         a_view.DisplayGameOver(a_game.IsDealerWinner());
-        //     }
-        // }
-        public void Update(model.Card a_card) {
-            Console.WriteLine("Sleep for 2 seconds.");
-            Thread.Sleep(2000);
+        public PlayGame(model.Game a_game, view.IView a_view)
+        {
+            c_game = a_game;
+            c_view = a_view;
+            c_game.AddSubscriber(this);
         }
 
-        public bool Play(model.Game a_game, view.IView a_view)
+        public void RenderGame()
         {
-            a_view.DisplayWelcomeMessage();
+            c_view.DisplayWelcomeMessage();
             
-            a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-            a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
-            a_game.AddSubscriber(this);
+            c_view.DisplayDealerHand(c_game.GetDealerHand(), c_game.GetDealerScore());
+            c_view.DisplayPlayerHand(c_game.GetPlayerHand(), c_game.GetPlayerScore());
 
-            if (a_game.IsGameOver())
+            if (c_game.IsGameOver())
             {
-                a_view.DisplayGameOver(a_game.IsDealerWinner());
+                c_view.DisplayGameOver(c_game.IsDealerWinner());
             }
+        }
 
-            view.UserChoice input = a_view.GetInput();
+        public void Update(model.Card a_card) {
+            Console.WriteLine("Dealing card...");
+            Thread.Sleep(1000);
+        }
+
+        public bool Play()
+        {
+            RenderGame();
+
+            view.UserChoice input = c_view.GetInput();
 
             if (view.UserChoice.PLAY.Equals(input))
             {
-                a_game.NewGame();
+                c_game.NewGame();
             }
             else if (view.UserChoice.HIT.Equals(input))
             {
-                a_game.Hit();
-               // a_view.Pause();
+                c_game.Hit();
+               // c_view.Pause();
             }
             else if (view.UserChoice.STAND.Equals(input))
             {
-                a_game.Stand();
+                c_game.Stand();
             }
 
             return !view.UserChoice.QUIT.Equals(input);
