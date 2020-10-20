@@ -11,19 +11,22 @@ namespace BlackJack.model
         
         private List<IObserver> _observers = new List<IObserver>();
         
+        // Attach
         public void AddSubscriber(IObserver a_sub)
         {
             _observers.Add(a_sub);
         }
-        
+
+
+        // Notify
         public void DealCard(Card a_card)
         {
-            // här sätter vi observern(a_card)
+            m_hand.Add(a_card);
+
             foreach (IObserver subscriber in _observers)
             {
                 subscriber.Update(a_card);
             }
-            m_hand.Add(a_card);
         }
 
         public IEnumerable<Card> GetHand()
