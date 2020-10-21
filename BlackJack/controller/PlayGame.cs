@@ -34,7 +34,7 @@ namespace BlackJack.controller
 
         public void Update(model.Card a_card) {
             Console.WriteLine("Dealing card...");
-            Thread.Sleep(1000);
+            // Thread.Sleep();
         }
 
         public bool Play()
@@ -50,7 +50,6 @@ namespace BlackJack.controller
             else if (view.UserChoice.HIT.Equals(input))
             {
                 c_game.Hit();
-               // c_view.Pause();
             }
             else if (view.UserChoice.STAND.Equals(input))
             {

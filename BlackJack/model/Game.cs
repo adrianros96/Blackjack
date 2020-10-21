@@ -41,6 +41,7 @@ namespace BlackJack.model
         {
             return m_dealer.Hit(m_player);
         }
+        
 
         public bool Stand()
         {

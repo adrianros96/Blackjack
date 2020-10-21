@@ -12,13 +12,16 @@ namespace BlackJack.model
         
 
         private rules.INewGameStrategy m_newGameRule;
-        private rules.IHitStrategy m_hitRule;
+        private rules.IHitStrategy m_softRule;
+        
+        private rules.IDecidingWinnerStrategy m_winnerRule;
 
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
-            m_hitRule = a_rulesFactory.GetHitRule();
+            m_softRule = a_rulesFactory.SoftHitRule();
+            m_winnerRule = a_rulesFactory.GetGameWinnerRule();
         }
 
 
@@ -59,9 +62,9 @@ namespace BlackJack.model
                     card.Show(true);
                 }
 
-                while (m_hitRule.DoHit(this))
+                while (m_softRule.DoHit(this))
                 {
-                    m_hitRule.DoHit(this);
+                    m_softRule.DoHit(this);
                     Card card = m_deck.GetCard();
                     card.Show(true);
                     DealCard(card);
@@ -80,20 +83,12 @@ namespace BlackJack.model
 
         public bool IsDealerWinner(Player a_player)
         {
-            if (a_player.CalcScore() > g_maxScore)
-            {
-                return true;
-            }
-            else if (CalcScore() > g_maxScore)
-            {
-                return false;
-            }
-            return CalcScore() >= a_player.CalcScore();
+           return m_winnerRule.IsDealerWinner(this, a_player, g_maxScore);
         }
 
         public bool IsGameOver()
         {
-            if (m_deck != null && /*CalcScore() >= g_hitLimit*/ m_hitRule.DoHit(this) != true)
+            if (m_deck != null && /*CalcScore() >= g_hitLimit*/ m_softRule.DoHit(this) != true)
             {
                 return true;
             }
