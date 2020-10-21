@@ -34,7 +34,7 @@ namespace BlackJack.controller
 
         public void Update(model.Card a_card) {
             Console.WriteLine("Dealing card...");
-            // Thread.Sleep();
+            Thread.Sleep(1000);
         }
 
         public bool Play()
