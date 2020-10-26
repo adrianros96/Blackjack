@@ -15,9 +15,9 @@ namespace BlackJack.view
             System.Console.WriteLine("Hello Black Jack World");
             System.Console.WriteLine("----------------------");
             System.Console.WriteLine("Type '" + (char)UserChoice.PLAY + "' to Play, '" 
-                                            + (char)UserChoice.HIT + "' to Hit, '" 
-                                            + (char)UserChoice.STAND + "' to Stand or '" 
-                                            + (char)UserChoice.QUIT + "' to Quit\n");
+                                                + (char)UserChoice.HIT + "' to Hit, '" 
+                                                + (char)UserChoice.STAND + "' to Stand or '" 
+                                                + (char)UserChoice.QUIT + "' to Quit\n");
         }
 
         public UserChoice GetInput()
