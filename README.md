@@ -20,7 +20,7 @@ which means to some extent they are coupled (not completely loosely coupled). To
 -> implemented by Subject and Observer to apply Observer pattern.
 
 
-6. Look for duplicate code against DRY - SEMI DONE!
+6. Look for duplicate code against DRY - DONE!
 The code for getting a card from the deck, show the card and give it to a player is duplicated in a number of places. Make a refactoring to remove this duplication and that supports low coupling/high cohesion (i.e. check how you can evaluate different solutions to the problem and select the one that gives the best result according to low coupling/high cohesion). The code that is duplicated is similar to this:
 
         Card c = deck.GetCard();
