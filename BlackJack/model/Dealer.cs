@@ -44,7 +44,6 @@ namespace BlackJack.model
             {
                 m_softRule.DoHit(this);
                 DealerDealsCard(m_deck, a_player, true);
-
                 return true;
             }
             return false;
