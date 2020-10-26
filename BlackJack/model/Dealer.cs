@@ -48,7 +48,7 @@ namespace BlackJack.model
             }
             return false;
         }
-        // TODO fix dry
+        
         public bool Stand() {
             if(m_deck != null)
             {
