@@ -13,7 +13,7 @@ namespace BlackJack.model.rules
         {
             int handScore = a_dealer.CalcScore();
             
-            return handScore < g_hitLimit || (handScore  >= g_hitLimit && handScore  < 21);
+            return (handScore <= g_hitLimit);
         }
     }
 }
